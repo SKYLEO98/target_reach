@@ -1,0 +1,216 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- This URDF was automatically created by SolidWorks to URDF Exporter! Originally created by Stephen Brawner (brawner@gmail.com) 
+     Commit Version: 1.6.0-4-g7f85cfe  Build Version: 1.6.7995.38578
+     For more information, please see http://wiki.ros.org/sw_urdf_exporter -->
+<robot
+  name="double_pendulum">
+  <link
+    name="base">
+    <inertial>
+      <origin
+        xyz="8.7728E-19 -3.939E-19 -0.012517"
+        rpy="0 0 0" />
+      <mass
+        value="0.18103" />
+      <inertia
+        ixx="0.00011467"
+        ixy="-2.1877E-13"
+        ixz="-1.0921E-20"
+        iyy="0.00011684"
+        iyz="3.768E-22"
+        izz="0.00020425" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://double_pendulum/meshes/base.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.79216 0.81961 0.93333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://double_pendulum/meshes/base.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <link
+    name="link1">
+    <inertial>
+      <origin
+        xyz="0.24883 7.4901E-19 5.7206E-17"
+        rpy="0 0 0" />
+      <mass
+        value="0.55796" />
+      <inertia
+        ixx="0.00017324"
+        ixy="6.8495E-21"
+        ixz="-2.8474E-18"
+        iyy="0.012546"
+        iyz="-7.0798E-12"
+        izz="0.012546" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://double_pendulum/meshes/link1.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.79216 0.81961 0.93333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://double_pendulum/meshes/link1.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="J1"
+    type="revolute">
+    <origin
+      xyz="0 0 0"
+      rpy="3.1416 -1.5708 0" />
+    <parent
+      link="base" />
+    <child
+      link="link1" />
+    <axis
+      xyz="0 0 -1" />
+    <limit
+      lower="-inf"
+      upper="inf"
+      effort="40"
+      velocity="2" />
+  </joint>
+  <link
+    name="link2">
+    <inertial>
+      <origin
+        xyz="0.24883 -4.128E-19 5.8497E-17"
+        rpy="0 0 0" />
+      <mass
+        value="0.55796" />
+      <inertia
+        ixx="0.00017324"
+        ixy="-5.4942E-20"
+        ixz="-2.7308E-18"
+        iyy="0.012546"
+        iyz="-7.0798E-12"
+        izz="0.012546" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://double_pendulum/meshes/link2.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.79216 0.81961 0.93333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://double_pendulum/meshes/link2.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="J2"
+    type="revolute">
+    <origin
+      xyz="0.5 0 0"
+      rpy="0 0 0" />
+    <parent
+      link="link1" />
+    <child
+      link="link2" />
+    <axis
+      xyz="0 0 -1" />
+    <limit
+      lower="-inf"
+      upper="inf"
+      effort="20"
+      velocity="2" />
+  </joint>
+  <link
+    name="EOF">
+    <inertial>
+      <origin
+        xyz="5.7405E-19 0 0"
+        rpy="0 0 0" />
+      <mass
+        value="0.006545" />
+      <inertia
+        ixx="1.6362E-06"
+        ixy="-7.8112E-39"
+        ixz="0"
+        iyy="1.6362E-06"
+        iyz="-2.0326E-55"
+        izz="1.6362E-06" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://double_pendulum/meshes/EOF.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.79216 0.81961 0.93333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://double_pendulum/meshes/EOF.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="EOF"
+    type="fixed">
+    <origin
+      xyz="0.5 0 0"
+      rpy="0 1.5708 0" />
+    <parent
+      link="link2" />
+    <child
+      link="EOF" />
+    <axis
+      xyz="0 0 0" />
+  </joint>
+</robot>
